@@ -8,8 +8,6 @@ Tecnologías Utilizadas
 
 React con TypeScript
 
-Tailwind CSS para estilos
-
 JSONPlaceholder API para datos de publicaciones y usuarios
 
 Estructura del Proyecto
