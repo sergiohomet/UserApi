@@ -1,50 +1,98 @@
-# React + TypeScript + Vite
+Documentación del Proyecto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Introducción
 
-Currently, two official plugins are available:
+Este proyecto es una aplicación web desarrollada en React con TypeScript, que permite visualizar una lista de publicaciones obtenidas de una API externa. Los usuarios pueden filtrar las publicaciones por título, paginarlas y ver detalles en un modal.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Tecnologías Utilizadas
 
-## Expanding the ESLint configuration
+React con TypeScript
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Tailwind CSS para estilos
 
-- Configure the top-level `parserOptions` property like this:
+JSONPlaceholder API para datos de publicaciones y usuarios
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+Estructura del Proyecto
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+El proyecto está organizado en los siguientes archivos y carpetas:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+/src
+├── components
+│ ├── Modal.tsx
+│ ├── ModalContent.tsx
+│ ├── Pagination.tsx
+│ ├── PostDetails.tsx
+├── hooks
+│ ├── usePostApi.ts
+│ ├── useUserIdApi.ts
+├── types.ts
+├── App.tsx
+├── styles.css
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Componentes
+
+App.tsx
+
+Componente principal que maneja el estado global de la aplicación, incluyendo:
+
+La lista de publicaciones obtenida desde la API.
+
+La página actual para la paginación.
+
+La búsqueda de publicaciones por título.
+
+La gestión del modal para ver detalles de una publicación.
+
+PostDetails.tsx
+
+Muestra la lista de publicaciones en tarjetas (cards). Cada tarjeta permite abrir un modal con detalles adicionales.
+
+Pagination.tsx
+
+Controla la paginación de publicaciones, permitiendo navegar entre páginas.
+
+Modal.tsx
+
+Componente reutilizable para modales, recibe isOpen, onClose y children como props.
+
+ModalContent.tsx
+
+Contenido del modal, muestra detalles de una publicación incluyendo el nombre del autor.
+
+Hooks Personalizados
+
+usePostApi.ts
+
+Maneja la obtención de publicaciones desde la API.
+
+useUserIdApi.ts
+
+Obtiene la información del usuario a partir de su ID.
+
+Tipos Definidos (types.ts)
+
+UsersPost: Define la estructura de una publicación.
+
+User: Extiende UsersPost agregando la propiedad name.
+
+Estilos (CSS)
+
+Los estilos están definidos en styles.css, incluyendo:
+
+Diseño de tarjetas (.card-container, .card).
+
+Estilos para la paginación (.pagination).
+
+Estilos para el modal (.modal-overlay, .modal-content).
+
+Funcionamiento
+
+Carga de publicaciones: Se obtienen desde usePostApi.ts y se almacenan en el estado.
+
+Búsqueda: Filtra las publicaciones en base al título ingresado.
+
+Paginación: Se navega entre las publicaciones de 10 en 10.
+
+Modal de detalles: Al hacer clic en una publicación, se abre un modal con su información y el nombre del autor.
+
+Visualización del autor: Se obtiene el nombre del autor a través de useUserIdApi.ts, usando el userId de la publicación.
