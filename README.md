@@ -1,5 +1,32 @@
+🚀 Cómo Ejecutar el Proyecto en Local
+
+1️⃣ Clonar el Repositorio
+Abre una terminal y ejecuta el siguiente comando:
+
+git clone <URL_DEL_REPOSITORIO>
+📌 Nota: Reemplaza <URL_DEL_REPOSITORIO> con la URL real de tu repositorio en GitHub.
+
+Luego, entra en la carpeta del proyecto:
+cd NOMBRE_DEL_PROYECTO
+
+2️⃣ Instalar Dependencias
+Ejecuta el siguiente comando para instalar las dependencias necesarias:
+npm install
+
+3️⃣ Iniciar el Servidor
+Una vez finalizada la instalación, ejecuta el siguiente comando para correr la aplicación en modo desarrollo:
+npm run dev
+
+Esto abrirá la aplicación en tu navegador en la siguiente dirección:
+http://localhost:5173
+
+📌 Nota: Si usas React con Vite, la URL suele ser http://localhost:5173. Si usas Create React App, puede ser http://localhost:3000.
+
+
 📌 Proyecto de Publicaciones con React y TypeScript
+  
 🚀 Introducción
+
 Este proyecto es una aplicación web desarrollada en React con TypeScript, que permite visualizar una lista de publicaciones obtenidas de una API externa.
 
 📌 Funcionalidades
@@ -27,6 +54,7 @@ Este proyecto es una aplicación web desarrollada en React con TypeScript, que p
 ├── styles.css
 
 📌 Componentes
+
 🏠 App.tsx
 Componente principal que maneja el estado global de la aplicación, incluyendo:
 
