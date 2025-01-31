@@ -4,7 +4,7 @@ export function usePostApi() {
   const [posts, setPosts] = useState([])
   
   const fetchPost = async (page: number) => {
-    const limit = 10
+    const limit = 12
     const url = `https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=${limit}`
     try {
       const response = await fetch(url);
